@@ -1,0 +1,34 @@
+{
+  "name": "portion",
+  "version": "1.0.0",
+  "description": "Live editor",
+  "main": "src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EnzoEmb/portion.git"
+  },
+  "keywords": [
+    "animate",
+    "scroll",
+    "animation",
+    "reveal"
+  ],
+  "author": "Enzo Vergara",
+  "bugs": {
+    "url": "https://github.com/EnzoEmb/portion/issues"
+  },
+  "homepage": "https://github.com/EnzoEmb/portion#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-terser": "^1.2.0"
+  }
+}

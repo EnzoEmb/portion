@@ -1,0 +1,19 @@
+body{
+  font-family: 'Inter', sans-serif;
+  background-color: #fffae9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 50px 0;
+}
+*, *:before, *:after{
+  box-sizing: border-box;
+}
+#content{
+  width: 1000px;
+  height: calc(100vh - 100px);
+  background-color: white;
+  padding: 50px;
+  outline: none;
+}
