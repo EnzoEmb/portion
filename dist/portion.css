@@ -16,19 +16,25 @@ body {
 
 #content {
   width: 800px;
-  height: calc(100vh - 100px);
+  min-height: calc(100vh - 100px);
   background-color: white;
   padding: 50px;
   outline: none;
 }
 
 .element {
-  box-shadow: 0 0 0 1px red;
+  box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.185);
   outline: none;
   padding: 10px;
+  cursor: grab;
 }
 
 .element .element-content {
   box-shadow: inset 0 0 0 1px grey;
   outline: none;
+  cursor: text;
+}
+
+.element.dragging {
+  background-color: #cdf8ff;
 }
