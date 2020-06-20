@@ -14,12 +14,18 @@ body {
   box-sizing: border-box;
 }
 
-#content {
-  width: 800px;
-  min-height: calc(100vh - 100px);
+.base {
   background-color: white;
   padding: 50px;
+  width: 800px;
+  display: flex;
+}
+
+.content {
+  width: 100%;
+  min-height: calc(100vh - 100px);
   outline: none;
+  border: 1px solid greenyellow;
 }
 
 .element {
@@ -37,4 +43,15 @@ body {
 
 .element.dragging {
   background-color: #cdf8ff;
+}
+
+#grid-dropzone {
+  background-color: #cdf8ff;
+  padding: 15px;
+  width: 15px;
+  transition: .4s width;
+}
+
+#grid-dropzone.focused {
+  width: 100%;
 }

@@ -12,12 +12,17 @@ body {
 *:after {
   box-sizing: border-box;
 }
-#content {
-  width: 800px;
-  min-height: calc(100vh - 100px);
+.base {
   background-color: white;
   padding: 50px;
+  width: 800px;
+  display: flex;
+}
+.content {
+  width: 100%;
+  min-height: calc(100vh - 100px);
   outline: none;
+  border: 1px solid greenyellow;
 }
 .element {
   box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.185);
@@ -31,6 +36,16 @@ body {
   }
   &.dragging {
     background-color: rgb(205, 248, 255);
+  }
+}
+
+#grid-dropzone {
+  background-color: rgb(205, 248, 255);
+  padding: 15px;
+  width: 15px;
+  transition: .4s width;
+  &.focused{
+    width: 100%;
   }
 }
 // #content *{
