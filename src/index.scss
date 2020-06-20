@@ -78,3 +78,52 @@ body {
 .row {
   margin: 5px 0;
 }
+
+
+
+.column{
+  position: relative;
+  &:before{
+    content: 'COL';
+    background: red;
+    color: white;
+    font-family: monospace;
+    padding: 2px 4px;
+    font-size: 11px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+
+.row{
+  position: relative;
+  &:before{
+    content: 'ROW';
+    background: rgb(132, 0, 255);
+    color: white;
+    font-family: monospace;
+    padding: 2px 4px;
+    font-size: 11px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+
+.empty-row{
+  position: relative;
+  &:before{
+    content: 'EMPTY-ROW';
+    background: rgb(0, 204, 255);
+    color: white;
+    font-family: monospace;
+    padding: 2px 4px;
+    font-size: 11px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

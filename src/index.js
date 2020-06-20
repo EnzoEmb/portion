@@ -33,6 +33,14 @@ function createRow(e) {
     draggable: '.column',
     ghostClass: 'dragging',
     // swapThreshold: 0.65
+    onRemove(e){
+      alert('removed');
+      console.log(e.from);
+      console.log(e.from.childNodes.length);
+      if(e.from.childNodes.length === 0){
+        e.from.remove();
+      }
+    }
   });
 
   new Sortable(PARENT.nextSibling, {

@@ -65,3 +65,51 @@ body {
 .row {
   margin: 5px 0;
 }
+
+.column {
+  position: relative;
+}
+
+.column:before {
+  content: 'COL';
+  background: red;
+  color: white;
+  font-family: monospace;
+  padding: 2px 4px;
+  font-size: 11px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.row {
+  position: relative;
+}
+
+.row:before {
+  content: 'ROW';
+  background: #8400ff;
+  color: white;
+  font-family: monospace;
+  padding: 2px 4px;
+  font-size: 11px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.empty-row {
+  position: relative;
+}
+
+.empty-row:before {
+  content: 'EMPTY-ROW';
+  background: #00ccff;
+  color: white;
+  font-family: monospace;
+  padding: 2px 4px;
+  font-size: 11px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
