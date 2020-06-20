@@ -55,8 +55,13 @@ body {
   background-color: #cdf8ff;
   width: 40px;
   height: 40px;
+  display: none;
 }
 
 .dragging {
   background-color: #cdf8ff;
+}
+
+.row {
+  margin: 5px 0;
 }
