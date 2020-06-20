@@ -161,3 +161,41 @@ new Sortable(document.getElementsByClassName('column')[0], {
 //     // faltaria iniciarlos
 //   },
 // });
+
+
+  // init first row
+  new Sortable(document.getElementsByClassName('row')[0], {
+    group: 'content',
+    animation: 150,
+    draggable: '.element',
+    ghostClass: 'dragging',
+    // onRemove(e) {
+    // al mover elemento, eliminamos el row si queda vacio y su empty-row
+    // if (e.from.childNodes.length === 0) {
+    //   e.from.nextSibling.remove();
+    //   e.from.remove();
+    // }
+    // }
+    onAdd(e) {
+      // alert('added on row')
+      // console.log(e);
+      //añadimos columna y ponemos el elemenot
+      // e.target.insertAdjacentHTML('beforeend', '<div class="column"></div>');
+      wrapperCol = document.createElement('div');
+      wrapperCol.classList.add('column')
+      // e.target.getElementsByClassName('.column').appendChild(e.item);
+      e.target.appendChild(wrapperCol);
+      wrapperCol.appendChild(e.item)
+
+
+      new Sortable(wrapperCol, {
+        group: 'content',
+        animation: 150,
+        draggable: '.element',
+        ghostClass: 'dragging',
+      });
+    
+
+
+    }
+  });
