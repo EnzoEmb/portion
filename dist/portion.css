@@ -29,10 +29,11 @@ body {
 }
 
 .element {
-  box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.185);
+  box-shadow: inset 0 0 0 1px rgba(255, 0, 0, 0.185);
   outline: none;
   padding: 10px;
   cursor: grab;
+  flex: 1;
 }
 
 .element .element-content {
@@ -41,17 +42,21 @@ body {
   cursor: text;
 }
 
-.element.dragging {
-  background-color: #cdf8ff;
+.row {
+  display: flex;
 }
 
-#grid-dropzone {
-  background-color: #cdf8ff;
-  padding: 15px;
-  width: 35px;
-  transition: .4s width;
+.column {
+  flex: 1;
 }
 
-#grid-dropzone.sortable-focused, #grid-dropzone.has-element {
-  width: 100%;
+.grid-add {
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  background-color: #cdf8ff;
+  width: 40px;
+  height: 40px;
+}
+
+.dragging {
+  background-color: #cdf8ff;
 }

@@ -1,6 +1,6 @@
 const BASE = document.getElementById("base")
 const CONTAINER = document.getElementById("content")
-const GRID_DROPZONE = document.getElementById("grid-dropzone")
+// const GRID_DROPZONE = document.getElementById("grid-dropzone")
 const MAX_GRIDS = 5;
 // const ELEMENT = document.querySelector(".element")
 
@@ -8,77 +8,107 @@ const MAX_GRIDS = 5;
 document.activeElement.addEventListener("keypress", function (e) {
   // si el boton es enter
   if (e.keyCode == 13) {
-    // añadimos nuevo parrafo
-    createElement(e);
+    // añadimos nuevo row
+    createRow(e);
   }
 });
 
 
-function createElement(e) {
+function createRow(e) {
   e.preventDefault();
-  // añadimos nuevo parrafo
-  var PARENT = e.target.parentElement;
-  PARENT.insertAdjacentHTML('afterend', '<div class="element" draggable="true"><div class="element-content" contenteditable="true"></div></div>');
+
+  // añadimos nuevo row
+  var PARENT = e.target.parentElement.parentElement.parentElement;
+  PARENT.insertAdjacentHTML('afterend', '<div class="row"><div class="column"><div class="element"><div class="element-content" contenteditable="true"></div></div></div><div class="grid-add"></div></div>');
   PARENT.nextSibling.getElementsByClassName('element-content')[0].focus()
+
+  // iniciamos el sortable en el grid-add
+  new Sortable(PARENT.nextSibling.getElementsByClassName('grid-add')[0], gridAddOptions);
 }
 
-function createContent(e) {
-  CONTAINER.insertAdjacentHTML('afterend', '<section id="content-2" class="content"></section>');
-  var newContent = document.getElementById("content-2");
-  new Sortable(newContent, {
-    group: 'content',
-    animation: 150
-  });
 
+var gridAddOptions = {
+  group: 'content',
+  animation: 150,
+  fallbackOnBody: true,
+  swapThreshold: 0.65,
+
+  onAdd: function (evt) {
+
+    console.log(evt);
+    // alert('asdasd');
+
+    // console.log(evt.item.getElementsByClassName('column')[0]);
+    // console.log(evt.target.parentElement)
+    // evt.target.parentElement.appendChild(evt.item.getElementsByClassName('column')[0])
+    evt.target.parentElement.insertBefore(evt.item.getElementsByClassName('column')[0], evt.target)
+    // console.log(evt.item);
+    evt.item.remove();
+    // evt.target.insertBefore(evt.item.getElementsByClassName('column')[0])
+    // console.log(evt.target.parentElement.querySelector('.column:last-child'))
+    // console.log(evt.target.parentElement.querySelector('.column:last-child'))
+    // .appendChild(evt.item.getElementsByClassName('column')[0])
+
+
+  }
 }
+
+
+
+
+
+// function createContent(e) {
+//   CONTAINER.insertAdjacentHTML('afterend', '<section id="content-2" class="content"></section>');
+//   var newContent = document.getElementById("content-2");
+//   new Sortable(newContent, {
+//     group: 'content',
+//     animation: 150
+//   });
+// }
 
 new Sortable(CONTAINER, {
   group: 'content',
   animation: 150,
+  draggable: 'column',
   ghostClass: 'dragging',
-  // onStart: function (evt) {
-  //   console.log(evt);
+  swapThreshold: 0.65
+  // onEnd: function (evt) {
+  //   document.querySelector('.sortable-focused').classList.remove('sortable-focused')
   // },
-  onEnd: function (/**Event*/evt) {
-    //   console.log('ENDED');
-    // console.log(evt);
-    //   if (evt.to.id == 'grid-dropzone') {
-    //     createContent();
-    //   }
-    //   console.log(evt.to.id);
-    document.querySelector('.sortable-focused').classList.remove('sortable-focused')
-  },
-  onMove: function (evt) {
-    // console.log(evt);
+  // onMove: function (evt) {
 
-    // console.log(evt);
-    // console.log(evt.from);
-    // console.log(evt.related);
+  //   if (evt.related != evt.from) {
+  //     evt.related.classList.add('sortable-focused')
 
-    if (evt.related != evt.from) {
-      evt.related.classList.add('sortable-focused')
-
-    } else {
-      evt.related.classList.remove('sortable-focused')
-
-    }
-  }
+  //   } else {
+  //     evt.related.classList.remove('sortable-focused')
+  //   }
+  // }
 });
 
 
-new Sortable(GRID_DROPZONE, {
-  group: 'content',
-  animation: 150,
-  onAdd: function (/**Event*/evt) {
-    GRID_DROPZONE.classList.add('has-element');
-  },
-  onMove: function (evt) {
-    // console.log(evt);
-    // console.log(GRID_DROPZONE.getElementsByClassName('element').length);
-    if (GRID_DROPZONE.getElementsByClassName('element').length == 1) {
-      GRID_DROPZONE.classList.remove('has-element')
-    }
-  }
-});
 
-// onmousemove = function(e){console.log("mouse location:", e.clientX, e.clientY)}
+// var gridAdd = document.querySelectorAll('.grid-add')
+// for (var i = 0; i < gridAdd.length; i++) {
+// 	new Sortable(gridAdd[i], {
+// 		group: 'content',
+// 		animation: 150,
+// 		fallbackOnBody: true,
+// 		swapThreshold: 0.65
+// 	});
+// }
+
+
+
+// new Sortable(GRID_DROPZONE, {
+//   group: 'content',
+//   animation: 150,
+//   onAdd: function (evt) {
+//     GRID_DROPZONE.classList.add('has-element');
+//   },
+//   onMove: function (evt) {
+//     if (GRID_DROPZONE.getElementsByClassName('element').length == 1) {
+//       GRID_DROPZONE.classList.remove('has-element')
+//     }
+//   }
+// });
