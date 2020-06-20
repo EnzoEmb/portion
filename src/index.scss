@@ -115,6 +115,8 @@ body {
 
 .empty-row{
   position: relative;
+  min-height: 19px;
+  box-shadow: inset 0 0 0 1px rgba(72, 255, 0, 0.185);
   &:before{
     content: 'EMPTY-ROW';
     background: rgb(0, 204, 255);

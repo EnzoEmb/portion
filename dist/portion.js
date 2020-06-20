@@ -1,8 +1,6 @@
 const BASE = document.getElementById("base")
 const CONTAINER = document.getElementById("content")
-// const GRID_DROPZONE = document.getElementById("grid-dropzone")
 const MAX_GRIDS = 5;
-// const ELEMENT = document.querySelector(".element")
 
 // cuando presiona un boton en el elemento con foco
 document.activeElement.addEventListener("keypress", function (e) {
@@ -17,56 +15,57 @@ document.activeElement.addEventListener("keypress", function (e) {
 function createRow(e) {
   e.preventDefault();
 
-  // añadimos nuevo row
+  // añadimos nuevo empty row
   var PARENT = e.target.parentElement.parentElement.parentElement;
-  PARENT.insertAdjacentHTML('afterend', '<div class="row"></div>');
+  PARENT.insertAdjacentHTML('afterend', '<div class="row empty-row"></div>');
+
+  // añadimos nuevo row
   PARENT.nextSibling.insertAdjacentHTML('afterend', '<div class="row"><div class="column"><div class="element"><div class="element-content" contenteditable="true"></div></div></div></div>');
   PARENT.nextSibling.nextSibling.getElementsByClassName('element-content')[0].focus()
 
-  // iniciamos el sortable en el grid-add
-  // new Sortable(PARENT.nextSibling.getElementsByClassName('grid-add')[0], gridAddOptions);
-
-  // console.log(PARENT.nextSibling);
+  // iniciamos nuevo row
   new Sortable(PARENT.nextSibling.nextSibling, {
     group: 'content',
     animation: 150,
     draggable: '.column',
     ghostClass: 'dragging',
-    // swapThreshold: 0.65
-    onRemove(e){
-      alert('removed');
-      console.log(e.from);
-      console.log(e.from.childNodes.length);
-      if(e.from.childNodes.length === 0){
+    onRemove(e) {
+      // al mover elemento, eliminamos el row si queda vacio y su empty-row
+      if (e.from.childNodes.length === 0) {
+        e.from.nextSibling.remove();
         e.from.remove();
       }
     }
   });
 
+  // iniciamos nuevo empty row
   new Sortable(PARENT.nextSibling, {
     group: 'content',
     animation: 150,
     draggable: '.column',
     ghostClass: 'dragging',
-    // swapThreshold: 0.65
+    onAdd: function (e) {
+      // cuando añade un nuevo elemento, lo convertimos en row y creamos otro empty ante y despues
+      e.target.insertAdjacentHTML('beforebegin', '<div class="row empty-row"></div>');
+      e.target.insertAdjacentHTML('afterend', '<div class="row empty-row"></div>');
+      e.target.classList.remove('empty-row');
+      // faltaria iniciarlos
+    },
   });
-
-  // new Sortable(PARENT.nextSibling.getElementsByClassName('grid-add')[0], gridAddOptions);
 
 }
 
-// new Sortable(CONTAINER, {
-//   group: 'content',
-//   animation: 150,
-//   draggable: '.row',
-//   ghostClass: 'dragging',
-//   // swapThreshold: 0.65
-// });
 
+// iniciamos primer row
 new Sortable(document.getElementsByClassName('row')[0], {
   group: 'content',
   animation: 150,
   draggable: '.column',
   ghostClass: 'dragging',
-  // swapThreshold: 0.65
+  onRemove(e) {
+    // al mover elemento, eliminamos el row si queda vacio y su empty-row
+    if (e.from.childNodes.length === 2) {
+      e.from.remove();
+    }
+  }
 });
