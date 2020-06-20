@@ -37,16 +37,6 @@ body {
   }
 }
 
-// #grid-dropzone {
-//   background-color: rgb(205, 248, 255);
-//   padding: 15px;
-//   width: 35px;
-//   transition: .4s width;
-//   &.sortable-focused, &.has-element{
-//     width: 100%;
-//   }
-// }
-
 .row {
   display: flex;
 }
@@ -65,26 +55,16 @@ body {
 .dragging {
   background-color: rgb(205, 248, 255);
 }
-// .dragging{
-//   display: none;
-// }
-// #content *{
-//   &:focus{
-//     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
-//     outline: none;
-//   }
 
 // }
 .row {
   margin: 5px 0;
 }
 
-
-
-.column{
+.column {
   position: relative;
-  &:before{
-    content: 'COL';
+  &:before {
+    content: "COL";
     background: red;
     color: white;
     font-family: monospace;
@@ -96,11 +76,10 @@ body {
   }
 }
 
-
-.row{
+.row {
   position: relative;
-  &:before{
-    content: 'ROW';
+  &:before {
+    content: "ROW";
     background: rgb(132, 0, 255);
     color: white;
     font-family: monospace;
@@ -112,13 +91,12 @@ body {
   }
 }
 
-
-.empty-row{
+.empty-row {
   position: relative;
   min-height: 19px;
   box-shadow: inset 0 0 0 1px rgba(72, 255, 0, 0.185);
-  &:before{
-    content: 'EMPTY-ROW';
+  &:before {
+    content: "EMPTY-ROW";
     background: rgb(0, 204, 255);
     color: white;
     font-family: monospace;

@@ -57,7 +57,8 @@ function createRow(e) {
 
 
 // iniciamos primer row
-new Sortable(document.getElementsByClassName('row')[0], {
+
+new Sortable(document.getElementsByClassName('row')[1], {
   group: 'content',
   animation: 150,
   draggable: '.column',
@@ -68,4 +69,33 @@ new Sortable(document.getElementsByClassName('row')[0], {
       e.from.remove();
     }
   }
+});
+
+// iniciamos primero empty rows
+new Sortable(document.getElementsByClassName('row')[0], {
+  group: 'content',
+  animation: 150,
+  draggable: '.column',
+  ghostClass: 'dragging',
+  onAdd: function (e) {
+    // cuando añade un nuevo elemento, lo convertimos en row y creamos otro empty ante y despues
+    e.target.insertAdjacentHTML('beforebegin', '<div class="row empty-row"></div>');
+    e.target.insertAdjacentHTML('afterend', '<div class="row empty-row"></div>');
+    e.target.classList.remove('empty-row');
+    // faltaria iniciarlos
+  },
+});
+
+new Sortable(document.getElementsByClassName('row')[2], {
+  group: 'content',
+  animation: 150,
+  draggable: '.column',
+  ghostClass: 'dragging',
+  onAdd: function (e) {
+    // cuando añade un nuevo elemento, lo convertimos en row y creamos otro empty ante y despues
+    e.target.insertAdjacentHTML('beforebegin', '<div class="row empty-row"></div>');
+    e.target.insertAdjacentHTML('afterend', '<div class="row empty-row"></div>');
+    e.target.classList.remove('empty-row');
+    // faltaria iniciarlos
+  },
 });
