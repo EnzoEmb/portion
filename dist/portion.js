@@ -23,7 +23,6 @@ function createRow(e) {
 
   // añadimos nuevo empty row
   var PARENT = e.target.parentElement.parentElement.parentElement;
-  // PARENT.insertAdjacentHTML('afterend', '<div class="row empty-row"></div>');
 
   // añadimos nuevo row
   PARENT.insertAdjacentHTML('afterend', '<div class="row"><div class="column"><div class="element"><div class="element-content" contenteditable="true"></div></div></div></div>');
@@ -35,13 +34,6 @@ function createRow(e) {
     animation: 150,
     draggable: '.element',
     ghostClass: 'dragging',
-    // onRemove(e) {
-    // al mover elemento, eliminamos el row si queda vacio y su empty-row
-    // if (e.from.childNodes.length === 0) {
-    //   e.from.nextSibling.remove();
-    //   e.from.remove();
-    // }
-    // }
   });
 
 
@@ -51,21 +43,10 @@ function createRow(e) {
     animation: 150,
     draggable: '.element',
     ghostClass: 'dragging',
-    // onRemove(e) {
-    // al mover elemento, eliminamos el row si queda vacio y su empty-row
-    // if (e.from.childNodes.length === 0) {
-    //   e.from.nextSibling.remove();
-    //   e.from.remove();
-    // }
-    // }
     onAdd(e) {
-      // alert('added on row')
-      // console.log(e);
       //añadimos columna y ponemos el elemenot
-      // e.target.insertAdjacentHTML('beforeend', '<div class="column"></div>');
       wrapperCol = document.createElement('div');
       wrapperCol.classList.add('column')
-      // e.target.getElementsByClassName('.column').appendChild(e.item);
       e.target.appendChild(wrapperCol);
       wrapperCol.appendChild(e.item)
 
@@ -76,30 +57,12 @@ function createRow(e) {
         draggable: '.element',
         ghostClass: 'dragging',
       });
-    
-
 
     }
   });
 
-
-
-  // iniciamos nuevo empty row
-  // new Sortable(PARENT.nextSibling.querySelector('.column'), {
-  //   group: 'content',
-  //   animation: 150,
-  //   draggable: '.element',
-  //   ghostClass: 'dragging',
-  //   onAdd: function (e) {
-  //     // cuando añade un nuevo elemento, lo convertimos en row y creamos otro empty ante y despues
-  //     e.target.insertAdjacentHTML('beforebegin', '<div class="row empty-row"></div>');
-  //     e.target.insertAdjacentHTML('afterend', '<div class="row empty-row"></div>');
-  //     e.target.classList.remove('empty-row');
-  //     // faltaria iniciarlos
-  //   },
-  // });
-
 }
+
 
 function createElement(e) {
   e.target.parentElement.insertAdjacentHTML('afterend', '<div class="element"><div class="element-content" contenteditable="true"></div></div>');
@@ -107,11 +70,6 @@ function createElement(e) {
   console.log(e.target.parentElement.nextSibling.getElementsByClassName('element-content')[0].focus());
 
 }
-
-
-
-
-
 
 
 // iniciamos primer row
@@ -130,81 +88,34 @@ new Sortable(document.getElementsByClassName('column')[0], {
 
 
 
+// init first row
+new Sortable(document.getElementsByClassName('row')[0], {
+  group: 'content',
+  animation: 150,
+  draggable: '.element',
+  ghostClass: 'dragging',
+  onAdd(e) {
+    //añadimos columna y ponemos el elemento
+    wrapperCol = document.createElement('div');
+    wrapperCol.classList.add('column')
+    e.target.appendChild(wrapperCol);
+    wrapperCol.appendChild(e.item)
 
+    new Sortable(wrapperCol, {
+      group: 'content',
+      animation: 150,
+      draggable: '.element',
+      ghostClass: 'dragging',
+    });
 
-
-// // iniciamos primero empty rows
-// new Sortable(document.getElementsByClassName('row')[0], {
-//   group: 'content',
-//   animation: 150,
-//   draggable: '.column',
-//   ghostClass: 'dragging',
-//   onAdd: function (e) {
-//     // cuando añade un nuevo elemento, lo convertimos en row y creamos otro empty ante y despues
-//     e.target.insertAdjacentHTML('beforebegin', '<div class="row empty-row"></div>');
-//     e.target.insertAdjacentHTML('afterend', '<div class="row empty-row"></div>');
-//     e.target.classList.remove('empty-row');
-//     // faltaria iniciarlos
-//   },
-// });
-
-// new Sortable(document.getElementsByClassName('row')[2], {
-//   group: 'content',
-//   animation: 150,
-//   draggable: '.column',
-//   ghostClass: 'dragging',
-//   onAdd: function (e) {
-//     // cuando añade un nuevo elemento, lo convertimos en row y creamos otro empty ante y despues
-//     e.target.insertAdjacentHTML('beforebegin', '<div class="row empty-row"></div>');
-//     e.target.insertAdjacentHTML('afterend', '<div class="row empty-row"></div>');
-//     e.target.classList.remove('empty-row');
-//     // faltaria iniciarlos
-//   },
-// });
-
-
-  // init first row
-  new Sortable(document.getElementsByClassName('row')[0], {
-    group: 'content',
-    animation: 150,
-    draggable: '.element',
-    ghostClass: 'dragging',
-    // onRemove(e) {
-    // al mover elemento, eliminamos el row si queda vacio y su empty-row
-    // if (e.from.childNodes.length === 0) {
-    //   e.from.nextSibling.remove();
-    //   e.from.remove();
-    // }
-    // }
-    onAdd(e) {
-      // alert('added on row')
-      // console.log(e);
-      //añadimos columna y ponemos el elemenot
-      // e.target.insertAdjacentHTML('beforeend', '<div class="column"></div>');
-      wrapperCol = document.createElement('div');
-      wrapperCol.classList.add('column')
-      // e.target.getElementsByClassName('.column').appendChild(e.item);
-      e.target.appendChild(wrapperCol);
-      wrapperCol.appendChild(e.item)
-
-
-      new Sortable(wrapperCol, {
-        group: 'content',
-        animation: 150,
-        draggable: '.element',
-        ghostClass: 'dragging',
-      });
-    
-
-
-    }
-  });
+  }
+});
 
 
 
 
 
 
-  document.getElementById('test').addEventListener('click', function(){
-    document.body.classList.toggle('test')
-  })
+document.getElementById('test').addEventListener('click', function () {
+  document.body.classList.toggle('test')
+})
