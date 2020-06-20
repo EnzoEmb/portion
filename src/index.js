@@ -50,8 +50,22 @@ function initColumn(element) {
     group: 'content',
     animation: 150,
     draggable: '.element',
+    onRemove(e) {
+      // si la columna no tiene elementos, la eliminamos
+      if (e.from.childNodes.length === 0) {
+        // si la row no tiene elementos la eliminamos
+        if (e.from.parentElement.querySelectorAll('.element').length == 0) {
+          e.from.parentElement.remove();
+        } else {
+          e.from.remove();
+        }
+      }
+
+
+    }
   });
 }
+
 function initRow(element) {
   new Sortable(element, {
     group: 'content',
@@ -64,12 +78,11 @@ function initRow(element) {
       e.target.appendChild(wrapperCol);
       wrapperCol.appendChild(e.item)
 
-      new Sortable(wrapperCol, {
-        group: 'content',
-        animation: 150,
-        draggable: '.element',
-      });
+      initColumn(wrapperCol)
 
+    },
+    onRemove(e) {
+      console.log(e);
     }
   });
 }
@@ -84,6 +97,9 @@ function init() {
 
   // iniciamos el primer row
   initRow(document.querySelector('.row'))
+
+  // hacemos foco en el primer input
+  document.querySelector('.element-content').focus();
 }
 
 init();
