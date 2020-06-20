@@ -48,10 +48,10 @@ body {
 #grid-dropzone {
   background-color: #cdf8ff;
   padding: 15px;
-  width: 15px;
+  width: 35px;
   transition: .4s width;
 }
 
-#grid-dropzone.focused {
+#grid-dropzone.sortable-focused, #grid-dropzone.has-element {
   width: 100%;
 }

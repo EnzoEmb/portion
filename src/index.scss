@@ -42,9 +42,9 @@ body {
 #grid-dropzone {
   background-color: rgb(205, 248, 255);
   padding: 15px;
-  width: 15px;
+  width: 35px;
   transition: .4s width;
-  &.focused{
+  &.sortable-focused, &.has-element{
     width: 100%;
   }
 }
