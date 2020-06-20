@@ -26,6 +26,7 @@ body {
   min-height: calc(100vh - 100px);
   outline: none;
   border: 1px solid greenyellow;
+  overflow: hidden;
 }
 
 .element {
@@ -68,6 +69,7 @@ body {
 
 .column {
   position: relative;
+  padding-top: 17px;
 }
 
 .column:before {
@@ -84,6 +86,7 @@ body {
 
 .row {
   position: relative;
+  padding: 10px;
 }
 
 .row:before {
@@ -114,4 +117,21 @@ body {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+.element {
+  position: relative;
+  padding-top: 17px;
+}
+
+.element:before {
+  content: "ELE ";
+  background: #ffee00;
+  color: #191b00;
+  font-family: monospace;
+  padding: 2px 4px;
+  font-size: 11px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }

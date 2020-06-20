@@ -23,6 +23,7 @@ body {
   min-height: calc(100vh - 100px);
   outline: none;
   border: 1px solid greenyellow;
+  overflow: hidden;
 }
 .element {
   box-shadow: inset 0 0 0 1px rgba(255, 0, 0, 0.185);
@@ -63,6 +64,7 @@ body {
 
 .column {
   position: relative;
+  padding-top: 17px;
   &:before {
     content: "COL";
     background: red;
@@ -78,6 +80,7 @@ body {
 
 .row {
   position: relative;
+  padding: 10px;
   &:before {
     content: "ROW";
     background: rgb(132, 0, 255);
@@ -105,5 +108,23 @@ body {
     position: absolute;
     top: 0;
     right: 0;
+  }
+}
+
+
+
+.element {
+  position: relative;
+  padding-top: 17px;
+  &:before {
+    content: "ELE ";
+    background: rgb(255, 238, 0);
+    color: rgb(25, 27, 0);
+    font-family: monospace;
+    padding: 2px 4px;
+    font-size: 11px;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }
