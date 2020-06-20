@@ -152,6 +152,6 @@ body.test .sortable-selected {
   display: none;
 }
 
-.dragging {
+[draggable="true"] {
   background-color: #cdf8ff;
 }

@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="dist/portion.css">
 </head>
 
-<body>
+<body class="test">
     <button id="test">toggle testing mode</button>
     <main id="main-wrapper">
         <div class="base" id="base">
 
+
+
             <section id="content" class="content">
-                <!-- <div class="row empty-row"></div> -->
                 <div class="row">
                     <div class="column">
                         <div class="element">
@@ -24,11 +25,19 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="row empty-row"></div> -->
             </section>
+
+
+
         </div>
     </main>
 
+    <script>
+        // testing mode
+        document.getElementById('test').addEventListener('click', function () {
+            document.body.classList.toggle('test')
+        })
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.10.2/Sortable.min.js"></script>
     <script src="dist/portion.js"></script>
 </body>

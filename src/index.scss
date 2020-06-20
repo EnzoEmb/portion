@@ -27,6 +27,10 @@
   display: none;
 }
 
-.dragging {
+// .dragging {
+//   background-color: rgb(205, 248, 255);
+// }
+
+[draggable="true"] {
   background-color: rgb(205, 248, 255);
 }
