@@ -40,8 +40,9 @@ function createRow(e) {
 
 
 function createElement(e) {
+  console.log(e);
   e.target.parentElement.insertAdjacentHTML('afterend', '<div class="element"><div class="element-content" contenteditable="true"></div></div>');
-  e.target.parentElement.nextSibling.focus();
+  e.target.parentElement.nextSibling.getElementsByClassName('element-content')[0].focus();
 }
 
 
