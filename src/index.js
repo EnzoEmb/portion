@@ -199,3 +199,12 @@ new Sortable(document.getElementsByClassName('column')[0], {
 
     }
   });
+
+
+
+
+
+
+  document.getElementById('test').addEventListener('click', function(){
+    document.body.classList.toggle('test')
+  })
