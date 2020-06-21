@@ -34,11 +34,13 @@
 .element {
   cursor: grab;
   display: flex;
-  .element-icon {
+  .element-drag {
+    background-image: url("img/grip-vertical.svg");
+    margin-right: 5px;
+  }
+  .element-icon, .element-drag {
     width: 20px;
     height: 20px;
-    margin-right: 5px;
-    // background: #eee;
     flex-shrink: 0;
     background-size: 15px;
     background-repeat: no-repeat;
@@ -52,8 +54,8 @@
     cursor: text;
     outline: none;
   }
-  &.focus {
-    .element-icon {
+  &.focus, &:hover {
+    .element-icon, .element-drag {
       opacity: 0.3;
       transform: translateX(0);
     }

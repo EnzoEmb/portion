@@ -4,6 +4,7 @@ const MAX_GRIDS = 5;
 const TEMPLATE_ELEMENT = `
 <div class="element" data-element="p">
   <div class="element-icon"></div>
+  <div class="element-drag"></div>
   <div class="element-content" contenteditable="true"></div>
 </div>`;
 const TEMPLATE_ROW = `

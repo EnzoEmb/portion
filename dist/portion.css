@@ -158,10 +158,14 @@ body.test .sortable-selected {
   display: flex;
 }
 
-.element .element-icon {
+.element .element-drag {
+  background-image: url("img/grip-vertical.svg");
+  margin-right: 5px;
+}
+
+.element .element-icon, .element .element-drag {
   width: 20px;
   height: 20px;
-  margin-right: 5px;
   flex-shrink: 0;
   background-size: 15px;
   background-repeat: no-repeat;
@@ -177,7 +181,7 @@ body.test .sortable-selected {
   outline: none;
 }
 
-.element.focus .element-icon {
+.element.focus .element-icon, .element.focus .element-drag, .element:hover .element-icon, .element:hover .element-drag {
   opacity: 0.3;
   transform: translateX(0);
 }
