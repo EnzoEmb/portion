@@ -2,8 +2,8 @@ const BASE = document.getElementById("base")
 const CONTAINER = document.getElementById("content")
 const MAX_GRIDS = 5;
 const TEMPLATE_ELEMENT = `
-<div class="element">
-  <div class="element-icon">a</div>
+<div class="element" data-element="p">
+  <div class="element-icon"></div>
   <div class="element-content" contenteditable="true"></div>
 </div>`;
 const TEMPLATE_ROW = `

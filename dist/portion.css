@@ -155,3 +155,26 @@ body.test .sortable-selected {
 [draggable="true"] {
   background-color: #cdf8ff;
 }
+
+.element {
+  display: flex;
+}
+
+.element .element-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  background: #eee;
+  flex-shrink: 0;
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.element .element-content {
+  flex: 1;
+}
+
+.element[data-element="p"] .element-icon {
+  background-image: url("img/corner-down-right.svg");
+}

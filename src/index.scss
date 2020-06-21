@@ -27,10 +27,28 @@
   display: none;
 }
 
-// .dragging {
-//   background-color: rgb(205, 248, 255);
-// }
-
 [draggable="true"] {
   background-color: rgb(205, 248, 255);
+}
+
+.element {
+  display: flex;
+  .element-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    background: #eee;
+    flex-shrink: 0;
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .element-content {
+    flex: 1;
+  }
+  &[data-element="p"] {
+    .element-icon {
+      background-image: url("img/corner-down-right.svg");
+    }
+  }
 }
