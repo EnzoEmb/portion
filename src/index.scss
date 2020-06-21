@@ -32,20 +32,33 @@
 }
 
 .element {
+  cursor: grab;
   display: flex;
   .element-icon {
     width: 20px;
     height: 20px;
     margin-right: 5px;
-    background: #eee;
+    // background: #eee;
     flex-shrink: 0;
     background-size: 15px;
     background-repeat: no-repeat;
     background-position: center;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: 0.2s opacity, 0.2s transform;
   }
   .element-content {
     flex: 1;
+    cursor: text;
+    outline: none;
   }
+  &.focus {
+    .element-icon {
+      opacity: 0.3;
+      transform: translateX(0);
+    }
+  }
+
   &[data-element="p"] {
     .element-icon {
       background-image: url("img/corner-down-right.svg");

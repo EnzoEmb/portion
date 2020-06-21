@@ -22,6 +22,14 @@ document.activeElement.addEventListener("keypress", function (e) {
   }
 });
 
+// cuando hace focusout removemos la clase foco
+document.activeElement.addEventListener("focusout", function (e) {
+  e.target.parentElement.classList.remove('focus');
+});
+document.activeElement.addEventListener("focusin", function (e) {
+  e.target.parentElement.classList.add('focus');
+});
+
 
 function createRow(e) {
   e.preventDefault();
@@ -37,6 +45,7 @@ function createRow(e) {
 
   // añadimos nuevo row
   PARENT.insertAdjacentHTML('afterend', TEMPLATE_ROW);
+  PARENT.nextElementSibling.classList.add('focus')
   PARENT.nextElementSibling.getElementsByClassName('element-content')[0].focus()
 
   // iniciamos la columna
@@ -109,6 +118,7 @@ function init() {
   initRow(document.querySelector('.row'))
 
   // hacemos foco en el primer input
+  document.querySelector('.element').classList.add('focus');
   document.querySelector('.element-content').focus();
 }
 
