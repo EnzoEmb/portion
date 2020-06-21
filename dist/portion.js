@@ -1,6 +1,8 @@
 const BASE = document.getElementById("base")
 const CONTAINER = document.getElementById("content")
 const MAX_GRIDS = 5;
+const TEMPLATE_ELEMENT = `<div class="element"><div class="element-content" contenteditable="true"></div></div>`;
+const TEMPLATE_ROW = `<div class="row"><div class="column">` + TEMPLATE_ELEMENT + `</div></div>`;
 
 
 
@@ -27,7 +29,7 @@ function createRow(e) {
   var PARENT = e.target.parentElement.parentElement.parentElement;
 
   // añadimos nuevo row
-  PARENT.insertAdjacentHTML('afterend', '<div class="row"><div class="column"><div class="element"><div class="element-content" contenteditable="true"></div></div></div></div>');
+  PARENT.insertAdjacentHTML('afterend', TEMPLATE_ROW);
   PARENT.nextSibling.getElementsByClassName('element-content')[0].focus()
 
   // iniciamos la columna
@@ -41,7 +43,7 @@ function createRow(e) {
 
 function createElement(e) {
   console.log(e);
-  e.target.parentElement.insertAdjacentHTML('afterend', '<div class="element"><div class="element-content" contenteditable="true"></div></div>');
+  e.target.parentElement.insertAdjacentHTML('afterend', TEMPLATE_ELEMENT);
   e.target.parentElement.nextSibling.getElementsByClassName('element-content')[0].focus();
 }
 
@@ -61,8 +63,6 @@ function initColumn(element) {
           e.from.remove();
         }
       }
-
-
     }
   });
 }
