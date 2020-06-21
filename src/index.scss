@@ -11,6 +11,7 @@
 }
 
 .content {
+  overflow: hidden;
   width: 100%;
 }
 .row {
@@ -39,7 +40,8 @@
     background-image: url("img/grip-vertical.svg");
     margin-right: 5px;
   }
-  .element-icon, .element-drag {
+  .element-icon,
+  .element-drag {
     width: 20px;
     height: 1.6em;
     flex-shrink: 0;
@@ -50,13 +52,18 @@
     transform: translateX(-10px);
     transition: 0.2s opacity, 0.2s transform;
   }
+  .element-icon{
+    cursor: pointer;
+  }
   .element-content {
     flex: 1;
     cursor: text;
     outline: none;
   }
-  &.focus, &:hover {
-    .element-icon, .element-drag {
+  &.focus,
+  &:hover {
+    .element-icon,
+    .element-drag {
       opacity: 0.3;
       transform: translateX(0);
     }
