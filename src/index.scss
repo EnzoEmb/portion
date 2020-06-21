@@ -7,6 +7,7 @@
   width: 800px;
   display: flex;
   font-size: 17px;
+  line-height: 1.6em;
 }
 
 .content {
@@ -40,7 +41,7 @@
   }
   .element-icon, .element-drag {
     width: 20px;
-    height: 20px;
+    height: 1.6em;
     flex-shrink: 0;
     background-size: 15px;
     background-repeat: no-repeat;
