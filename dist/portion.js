@@ -3,7 +3,9 @@ const CONTAINER = document.getElementById("content")
 const MAX_GRIDS = 5;
 const TEMPLATE_ELEMENT_POPUP = `
 <div class="element-popup">
- hola que tal amigos
+  <div class="popup-item"><div class="popup-item--icon"><img src="dist/img/heading.svg"></div>Heading 1</div>
+  <div class="popup-item"><div class="popup-item--icon"><img src="dist/img/heading.svg"></div>Heading 1</div>
+  <div class="popup-item"><div class="popup-item--icon"><img src="dist/img/heading.svg"></div>Heading 1</div>
 </div>
 `;
 const TEMPLATE_ELEMENT = `
@@ -147,11 +149,13 @@ init();
  * Elementos
  */
 document.addEventListener('click', function (e) {
-  if (e.target.classList.contains('element-icon')) {
+  if (e.target.classList.contains('element-icon') || e.target.classList.contains('popup-item') || e.target.classList.contains('popup-item--icon')) {
+    if (e.target.classList.contains('element-icon')) {
 
-    ELEMENT_POPUP.style.left = e.pageX + 'px'
-    ELEMENT_POPUP.style.top = e.pageY + 'px'
-    ELEMENT_POPUP.classList.add('open');
+      ELEMENT_POPUP.style.left = e.pageX + 'px'
+      ELEMENT_POPUP.style.top = e.pageY + 'px'
+      ELEMENT_POPUP.classList.add('open');
+    }
 
 
   } else {
