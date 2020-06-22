@@ -15,11 +15,12 @@
 .content {
   // overflow: hidden;
   width: 100%;
-  &.element-picked{
-    .column{
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, .05);
+  &.element-picked {
+    .column {
+      box-shadow: 0 0 0 1px #daf4f9;
+      background-color: rgba(205, 248, 255, 0.25);
     }
-    .column:empty{
+    .column:empty {
       box-shadow: none;
     }
   }

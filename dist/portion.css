@@ -133,7 +133,8 @@ body.test .sortable-selected {
 }
 
 .content.element-picked .column {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 1px #daf4f9;
+  background-color: rgba(205, 248, 255, 0.25);
 }
 
 .content.element-picked .column:empty {
