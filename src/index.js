@@ -17,7 +17,8 @@ const TEMPLATE_ROW = `
   <div class="column">` + TEMPLATE_ELEMENT + `</div>
 </div>`;
 
-
+CONTAINER.insertAdjacentHTML('beforeend', TEMPLATE_ELEMENT_POPUP);
+var ELEMENT_POPUP = CONTAINER.querySelector('.element-popup');
 
 // cuando presiona un boton en el elemento con foco
 document.activeElement.addEventListener("keypress", function (e) {
@@ -141,6 +142,19 @@ init();
 
 
 
+
 /**
  * Elementos
  */
+document.addEventListener('click', function (e) {
+  if (e.target.classList.contains('element-icon')) {
+
+    ELEMENT_POPUP.style.left = e.pageX + 'px'
+    ELEMENT_POPUP.style.top = e.pageY + 'px'
+    ELEMENT_POPUP.classList.add('open');
+
+
+  } else {
+    ELEMENT_POPUP.classList.remove('open');
+  }
+});

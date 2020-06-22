@@ -48,15 +48,23 @@
 }
 
 .element-popup {
-  display: none;
   position: absolute;
+  z-index: 50;
   left: 0;
-  top: -60px;
+  top: 0;
+  transform: translate3d(-50%, calc(-100% - 10px), 0) scale(0.8);
   box-shadow: $shadow;
   padding: 15px;
   background: white;
   border-radius: 5px;
   pointer-events: none;
+  opacity: 0;
+  transform-origin: bottom center;
+  transition: 0.2s opacity, 0.2s transform $cubic;
+  &.open {
+    opacity: 1;
+    transform: translate3d(-50%, calc(-100% - 10px), 0) scale(1);
+  }
 }
 
 .element-icon {
