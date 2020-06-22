@@ -1,3 +1,4 @@
+@import "scss/vars";
 @import "scss/layout";
 @import "scss/test";
 
@@ -8,10 +9,11 @@
   display: flex;
   font-size: 17px;
   line-height: 1.6em;
+  // overflow: hidden;
 }
 
 .content {
-  overflow: hidden;
+  // overflow: hidden;
   width: 100%;
 }
 .row {
@@ -33,9 +35,25 @@
   background-color: rgb(205, 248, 255);
 }
 
+.element-popup {
+  position: absolute;
+  left: 0;
+  top: -60px;
+  box-shadow: $shadow;
+  padding: 15px;
+  background: white;
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+.element-icon{
+  
+}
+
 .element {
   cursor: grab;
   display: flex;
+  position: relative;
   .element-drag {
     background-image: url("img/grip-vertical.svg");
     margin-right: 5px;
@@ -52,7 +70,7 @@
     transform: translateX(-10px);
     transition: 0.2s opacity, 0.2s transform;
   }
-  .element-icon{
+  .element-icon {
     cursor: pointer;
   }
   .element-content {

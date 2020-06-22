@@ -130,7 +130,6 @@ body.test .sortable-selected {
 }
 
 .content {
-  overflow: hidden;
   width: 100%;
 }
 
@@ -154,9 +153,21 @@ body.test .sortable-selected {
   background-color: #cdf8ff;
 }
 
+.element-popup {
+  position: absolute;
+  left: 0;
+  top: -60px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  padding: 15px;
+  background: white;
+  border-radius: 5px;
+  pointer-events: none;
+}
+
 .element {
   cursor: grab;
   display: flex;
+  position: relative;
 }
 
 .element .element-drag {

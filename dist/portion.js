@@ -1,8 +1,14 @@
 const BASE = document.getElementById("base")
 const CONTAINER = document.getElementById("content")
 const MAX_GRIDS = 5;
+const TEMPLATE_ELEMENT_POPUP = `
+<div class="element-popup">
+ hola que tal amigos
+</div>
+`;
 const TEMPLATE_ELEMENT = `
 <div class="element" data-element="p">
+  `+ TEMPLATE_ELEMENT_POPUP +`
   <div class="element-icon"></div>
   <div class="element-drag"></div>
   <div class="element-content" contenteditable="true"></div>
