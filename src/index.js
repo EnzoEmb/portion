@@ -8,7 +8,6 @@ const TEMPLATE_ELEMENT_POPUP = `
 `;
 const TEMPLATE_ELEMENT = `
 <div class="element" data-element="p">
-  `+ TEMPLATE_ELEMENT_POPUP + `
   <div class="element-icon"></div>
   <div class="element-drag"></div>
   <div class="element-content" contenteditable="true"></div>
@@ -75,6 +74,7 @@ function initColumn(element) {
     group: 'content',
     animation: 150,
     draggable: '.element',
+    filter: ".element-icon",
     onRemove(e) {
       // si la columna no tiene elementos, la eliminamos
       if (e.from.querySelectorAll('.element').length === 0) {
