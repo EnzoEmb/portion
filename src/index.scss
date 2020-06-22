@@ -15,12 +15,23 @@
 .content {
   // overflow: hidden;
   width: 100%;
+  &.element-picked{
+    .column{
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, .05);
+    }
+    .column:empty{
+      box-shadow: none;
+    }
+  }
 }
 .row {
   display: flex;
+  padding: 5px 10px;
 }
 .column {
+  margin: 0 5px;
   flex: 1;
+  border-radius: 4px;
 }
 
 .grid-add {
@@ -36,6 +47,7 @@
 }
 
 .element-popup {
+  display: none;
   position: absolute;
   left: 0;
   top: -60px;
@@ -46,14 +58,15 @@
   pointer-events: none;
 }
 
-.element-icon{
-  
+.element-icon {
 }
 
 .element {
+  flex: 1;
   cursor: grab;
   display: flex;
   position: relative;
+  transition: 0.1s background-color;
   .element-drag {
     background-image: url("img/grip-vertical.svg");
     margin-right: 5px;
@@ -91,5 +104,8 @@
     .element-icon {
       background-image: url("img/corner-down-right.svg");
     }
+  }
+  &:hover {
+    background-color: rgba(205, 248, 255, 0.25);
   }
 }

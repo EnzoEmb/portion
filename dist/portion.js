@@ -8,7 +8,7 @@ const TEMPLATE_ELEMENT_POPUP = `
 `;
 const TEMPLATE_ELEMENT = `
 <div class="element" data-element="p">
-  `+ TEMPLATE_ELEMENT_POPUP +`
+  `+ TEMPLATE_ELEMENT_POPUP + `
   <div class="element-icon"></div>
   <div class="element-drag"></div>
   <div class="element-content" contenteditable="true"></div>
@@ -85,7 +85,13 @@ function initColumn(element) {
           e.from.remove();
         }
       }
-    }
+    },
+    onChoose: function (e) {
+      CONTAINER.classList.add('element-picked')
+    },
+    onUnchoose: function (e) {
+      CONTAINER.classList.remove('element-picked')
+    },
   });
 }
 
@@ -106,7 +112,7 @@ function initRow(element) {
     },
     onRemove(e) {
       console.log(e);
-    }
+    },
   });
 }
 

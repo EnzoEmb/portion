@@ -97,7 +97,6 @@ body.test .element {
   box-shadow: inset 0 0 0 1px #ffee00;
   outline: none;
   padding: 10px;
-  flex: 1;
 }
 
 body.test .element .element-content {
@@ -133,12 +132,23 @@ body.test .sortable-selected {
   width: 100%;
 }
 
+.content.element-picked .column {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.content.element-picked .column:empty {
+  box-shadow: none;
+}
+
 .row {
   display: flex;
+  padding: 5px 10px;
 }
 
 .column {
+  margin: 0 5px;
   flex: 1;
+  border-radius: 4px;
 }
 
 .grid-add {
@@ -154,6 +164,7 @@ body.test .sortable-selected {
 }
 
 .element-popup {
+  display: none;
   position: absolute;
   left: 0;
   top: -60px;
@@ -165,9 +176,11 @@ body.test .sortable-selected {
 }
 
 .element {
+  flex: 1;
   cursor: grab;
   display: flex;
   position: relative;
+  transition: 0.1s background-color;
 }
 
 .element .element-drag {
@@ -207,4 +220,8 @@ body.test .sortable-selected {
 
 .element[data-element="p"] .element-icon {
   background-image: url("img/corner-down-right.svg");
+}
+
+.element:hover {
+  background-color: rgba(205, 248, 255, 0.25);
 }
