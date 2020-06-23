@@ -1,0 +1,37 @@
+.element {
+    &[data-element="heading-1"] {
+        .element-content {
+            font-weight: 700;
+            font-size: 1.7em;
+            margin-bottom: 0.3em;
+        }
+        .element-icon {
+            background-image: url("img/heading.svg");
+        }
+    }
+    &[data-element="heading-2"] {
+        .element-content {
+            font-weight: 700;
+            font-size: 1.45em;
+            margin-bottom: 0.3em;
+        }
+        .element-icon {
+            background-image: url("img/heading.svg");
+        }
+    }
+    &[data-element="heading-3"] {
+        .element-content {
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-bottom: 0.3em;
+        }
+        .element-icon {
+            background-image: url("img/heading.svg");
+        }
+    }
+    &[data-element="p"] {
+        .element-icon {
+            background-image: url("img/corner-down-right.svg");
+        }
+    }
+}

@@ -1,6 +1,7 @@
 @import "scss/vars";
 @import "scss/layout";
 @import "scss/test";
+@import "scss/elements";
 
 .base {
   background-color: white;
@@ -76,13 +77,14 @@
     border-radius: 3px;
     transition: 0.2s background;
     cursor: pointer;
+    color: $text;
     &:hover {
       background: #f3f3f3;
     }
     .popup-item--icon {
       border-radius: 4px;
       // background: #03a9f4;
-      background: #ebecec;
+      background: #f2f3f3;
       width: 18px;
       height: 18px;
       display: flex;
@@ -95,9 +97,6 @@
       }
     }
   }
-}
-
-.element-icon {
 }
 
 .element {
@@ -120,7 +119,7 @@
     background-position: center;
     opacity: 0;
     transform: translateX(-10px);
-    transition: 0.2s opacity, 0.2s transform;
+    transition: 0.2s opacity $cubic, 0.2s transform $cubic;
   }
   .element-icon {
     cursor: pointer;
@@ -140,11 +139,6 @@
     }
   }
 
-  &[data-element="p"] {
-    .element-icon {
-      background-image: url("img/corner-down-right.svg");
-    }
-  }
   &:hover {
     background-color: rgba(205, 248, 255, 0.25);
   }

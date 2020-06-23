@@ -119,6 +119,40 @@ body.test .sortable-selected {
   background: red;
 }
 
+.element[data-element="heading-1"] .element-content {
+  font-weight: 700;
+  font-size: 1.7em;
+  margin-bottom: 0.3em;
+}
+
+.element[data-element="heading-1"] .element-icon {
+  background-image: url("img/heading.svg");
+}
+
+.element[data-element="heading-2"] .element-content {
+  font-weight: 700;
+  font-size: 1.45em;
+  margin-bottom: 0.3em;
+}
+
+.element[data-element="heading-2"] .element-icon {
+  background-image: url("img/heading.svg");
+}
+
+.element[data-element="heading-3"] .element-content {
+  font-weight: 700;
+  font-size: 1.2em;
+  margin-bottom: 0.3em;
+}
+
+.element[data-element="heading-3"] .element-icon {
+  background-image: url("img/heading.svg");
+}
+
+.element[data-element="p"] .element-icon {
+  background-image: url("img/corner-down-right.svg");
+}
+
 .base {
   background-color: white;
   padding: 50px;
@@ -177,7 +211,7 @@ body.test .sortable-selected {
   pointer-events: none;
   opacity: 0;
   transform-origin: bottom center;
-  transition: 0.2s opacity, 0.2s transform cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: 0.2s opacity, 0.2s transform cubic-bezier(0.3, 0, 0, 1);
 }
 
 .element-popup.open {
@@ -195,6 +229,7 @@ body.test .sortable-selected {
   border-radius: 3px;
   transition: 0.2s background;
   cursor: pointer;
+  color: #4b595e;
 }
 
 .element-popup .popup-item:hover {
@@ -203,7 +238,7 @@ body.test .sortable-selected {
 
 .element-popup .popup-item .popup-item--icon {
   border-radius: 4px;
-  background: #ebecec;
+  background: #f2f3f3;
   width: 18px;
   height: 18px;
   display: flex;
@@ -240,7 +275,7 @@ body.test .sortable-selected {
   background-position: center;
   opacity: 0;
   transform: translateX(-10px);
-  transition: 0.2s opacity, 0.2s transform;
+  transition: 0.2s opacity cubic-bezier(0.3, 0, 0, 1), 0.2s transform cubic-bezier(0.3, 0, 0, 1);
 }
 
 .element .element-icon {
@@ -259,10 +294,6 @@ body.test .sortable-selected {
 .element:hover .element-drag {
   opacity: 0.3;
   transform: translateX(0);
-}
-
-.element[data-element="p"] .element-icon {
-  background-image: url("img/corner-down-right.svg");
 }
 
 .element:hover {

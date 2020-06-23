@@ -1,13 +1,76 @@
+
+
+
+var heading_1 = {
+  name: "Heading 1",
+  icon: "dist/img/heading.svg",
+  slug: "heading-1",
+  convertTo: function () {
+    alert('test');
+  }
+}
+
+var heading_2 = {
+  name: "Heading 2",
+  icon: "dist/img/heading.svg",
+  slug: "heading-2",
+  convertTo: function () {
+    alert('test');
+  }
+}
+
+var heading_3 = {
+  name: "Heading 3",
+  icon: "dist/img/heading.svg",
+  slug: "heading-3",
+  convertTo: function () {
+    alert('test');
+  }
+}
+
+var text = {
+  name: "Texto",
+  icon: "dist/img/heading.svg",
+  slug: "p",
+  convertTo: function () {
+    alert('test');
+  }
+}
+
+
+
+
+
+var ELEMENTS = [heading_1, heading_2, heading_3, text];
+var ELEMENTS_ITEMS = "";
+for (let i = 0; i < ELEMENTS.length; i++) {
+  ELEMENTS_ITEMS += '<div class="popup-item" data-element="' + ELEMENTS[i].slug + '"><div class="popup-item--icon"><img src="' + ELEMENTS[i].icon + '"></div>' + ELEMENTS[i].name + '</div>';
+}
+
+const TEMPLATE_ELEMENT_POPUP = `
+<div class="element-popup">
+`+ ELEMENTS_ITEMS + `
+
+</div>
+`;
+
+
+
+
+
+
+
 const BASE = document.getElementById("base")
 const CONTAINER = document.getElementById("content")
 const MAX_GRIDS = 5;
-const TEMPLATE_ELEMENT_POPUP = `
-<div class="element-popup">
-  <div class="popup-item"><div class="popup-item--icon"><img src="dist/img/heading.svg"></div>Heading 1</div>
-  <div class="popup-item"><div class="popup-item--icon"><img src="dist/img/heading.svg"></div>Heading 1</div>
-  <div class="popup-item"><div class="popup-item--icon"><img src="dist/img/heading.svg"></div>Heading 1</div>
-</div>
-`;
+// const TEMPLATE_ELEMENT_POPUP = `
+// <div class="element-popup">
+//   <div class="popup-item heading-1"><div class="popup-item--icon"><img src="dist/img/heading.svg"></div>Heading 1</div>
+//   <div class="popup-item"><div class="popup-item--icon"><img src="dist/img/heading.svg"></div>Heading 2</div>
+//   <div class="popup-item"><div class="popup-item--icon"><img src="dist/img/heading.svg"></div>Heading 3</div>
+//   <div class="popup-item heading-1"><div class="popup-item--icon"><img src="dist/img/heading.svg"></div>Texto</div>
+// </div>
+// `;
 const TEMPLATE_ELEMENT = `
 <div class="element" data-element="p">
   <div class="element-icon"></div>
@@ -18,6 +81,8 @@ const TEMPLATE_ROW = `
 <div class="row">
   <div class="column">` + TEMPLATE_ELEMENT + `</div>
 </div>`;
+
+var ACTIVE_ELEMENT;
 
 CONTAINER.insertAdjacentHTML('beforeend', TEMPLATE_ELEMENT_POPUP);
 var ELEMENT_POPUP = CONTAINER.querySelector('.element-popup');
@@ -75,8 +140,9 @@ function createElement(e) {
 function initColumn(element) {
   new Sortable(element, {
     group: 'content',
-    animation: 150,
     draggable: '.element',
+    animation: 300,
+    easing: "cubic-bezier(0.3, 0, 0, 1)",
     filter: ".element-icon",
     onRemove(e) {
       // si la columna no tiene elementos, la eliminamos
@@ -101,8 +167,9 @@ function initColumn(element) {
 function initRow(element) {
   new Sortable(element, {
     group: 'content',
-    animation: 150,
     draggable: '.element',
+    animation: 300,
+    easing: "cubic-bezier(0.3, 0, 0, 1)",
     onAdd(e) {
       //añadimos columna y ponemos el elemento
       wrapperCol = document.createElement('div');
@@ -155,10 +222,26 @@ document.addEventListener('click', function (e) {
       ELEMENT_POPUP.style.left = e.pageX + 'px'
       ELEMENT_POPUP.style.top = e.pageY + 'px'
       ELEMENT_POPUP.classList.add('open');
+      ACTIVE_ELEMENT = e.target.parentElement;
     }
 
 
   } else {
     ELEMENT_POPUP.classList.remove('open');
+    ACTIVE_ELEMENT = null;
   }
 });
+
+
+
+var items = document.querySelectorAll('.popup-item');
+for (let i = 0; i < items.length; i++) {
+  items[i].addEventListener('click', function () {
+    console.log(ACTIVE_ELEMENT);
+    ACTIVE_ELEMENT.setAttribute('data-element', this.getAttribute('data-element'))
+  })
+  
+  
+}
+
+
